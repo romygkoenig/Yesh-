@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_06_23_135119) do
     t.string "name"
     t.text "description"
     t.integer "price"
-    t.string "type"
+    t.string "category"
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
