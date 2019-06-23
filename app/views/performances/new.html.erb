@@ -1,0 +1,10 @@
+<h1>Create your performance</h1>
+
+<%= simple_form_for(@performance) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :category %>
+  <%= f.input :city %>
+  <%= f.submit %>
+<% end %>
