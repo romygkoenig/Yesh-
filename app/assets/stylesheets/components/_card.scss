@@ -86,31 +86,3 @@
 .card-booking .card-booking-infos {
   padding: 16px;
 }
-
-.card-btn {
-  background-color:transparent;
-  -moz-border-radius:6px;
-  -webkit-border-radius:6px;
-  border-radius:6px;
-  border:1px solid #620089;
-  display:inline-block;
-  cursor:pointer;
-  color:#620089;
-  font-size:14px;
-  font-weight:bold;
-  padding:7px 43px;
-  text-decoration:none;
-}
-
-// Update Booking/Perrformance Button
-
-.card-btn:hover {
-  background-color:#620089;
-  border:1px solid #4d016d;
-  color: white;
-}
-
-.card-btn:active {
-  position:relative;
-  top:1px;
-}

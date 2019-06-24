@@ -3,7 +3,7 @@ class PerformancesController < ApplicationController
   before_action :set_performance, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query]
+    if params[:query].present?
       @performances = policy_scope(Performance).where(category: params[:query])
     else
       @performances = policy_scope(Performance)
