@@ -1,2 +1,14 @@
-<h1>Performances#edit</h1>
-<p>Find me in app/views/performances/edit.html.erb</p>
+<h1>Edit your performance</h1>
+
+<%= simple_form_for(@performance) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :category %>
+  <%= f.input :city %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit %>
+<% end %>
+
+
