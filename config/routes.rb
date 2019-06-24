@@ -3,15 +3,15 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :performances do
-    resources :bookings, only: [:new, :create, :edit, :update]
+    resources :bookings, only: [:new, :create]
     resources :reviews
   end
 
-  namespace :users do
-    resources :bookings, only: [:index]
+  namespace :account do
+    resources :bookings, only: :index
   end
 
-  resources :bookings, only: [:destroy]
+  resources :bookings, only: [:destroy, :edit, :update]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
