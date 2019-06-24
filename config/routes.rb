@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :bookings, only: :index
   end
 
-  resources :bookings, only: [:destroy, :edit, :update]
+  resources :bookings, only: [:show, :edit, :update, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

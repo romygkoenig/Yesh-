@@ -1,15 +1,15 @@
-class PerformancePolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def create?
+  def show?
     true
   end
 
-  def show?
+  def create?
     true
   end
 
