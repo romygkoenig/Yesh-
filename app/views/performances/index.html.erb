@@ -3,7 +3,7 @@
 
 
 <% @performances.each do |performance| %>
-<p>Name:<%= performance.name %></p>
+<p><%= link_to performance.name, performance_path(performance) %></p>
 <%= cl_image_tag performance.photo, height: 300, width: 400, crop: :fill %>
 <p>Description:<%= performance.description %></p>
 <% if policy(performance).edit? %>

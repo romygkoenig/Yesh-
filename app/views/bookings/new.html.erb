@@ -1,8 +1,8 @@
 <h1>Book @performance.name</h1>
 
 <%= simple_form_for([@performance, @booking]) do |f| %>
-  <%= f.input :date %>
-  <%= f.input :time %>
+  <%= f.input :date, as: :date %>
+  <%= f.input :time, as: :time %>
   <%= f.submit %>
 <% end %>
 
