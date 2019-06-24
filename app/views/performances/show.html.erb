@@ -6,9 +6,19 @@
 <p><strong>City:</strong> <%=@performance.city%></p>
 <p><strong>Price:</strong> <%=@performance.price%></p>
 
-<br><br>
+<%= link_to "Book", new_performance_booking_path(@performance), class: "btn btn-primary"%>
+
+<br>
+<br>
 <h3>Reviews</h3>
-<% @performance.reviews.each do |review| %>
-  <p> <i class="fas fa-star"></i>*<%= review.rating %> </p>
-  <%= review.description %>
+<% if @performance.reviews.empty? %>
+  <p> <em> <%= "There are no reviews yet" %> </em> </p>
+<% else %>
+  <% @performance.reviews.each do |review| %>
+  <p> Rating: <%= review.rating %> <br>
+    <%= review.description %>
+  </p>
+  <% end %>
 <% end %>
+
+<%= link_to "Write a review", new_performance_review_path(@performance) %>
