@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :performances do
     resources :bookings, only: [:new, :create]
-    resources :reviews
+    resources :reviews, except: [ :show ]
   end
 
   namespace :account do
