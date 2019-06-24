@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to @performance, notice: 'Review was successfully created.'
     else
+      flash[:alert] = "Something went wrong. Please try again."
       render :new
     end
   end
