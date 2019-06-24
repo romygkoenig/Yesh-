@@ -1,3 +1,26 @@
-<h1> My Performances</h1>
+<h1><%=@performance.name%></h1>
+
 <%= cl_image_tag @performance.photo, height: 300, width: 400, crop: :fill %>
-<p><%=@performance.name%></p>
+
+<h3>Description</h3>
+<p><%=@performance.description%></p>
+<p><strong>Category:</strong> <%=@performance.category%></p>
+<p><strong>City:</strong> <%=@performance.city%></p>
+<p><strong>Price:</strong> <%=@performance.price%></p>
+
+<%= link_to "Book", new_performance_booking_path(@performance), class: "btn btn-primary"%>
+
+<br>
+<br>
+<h3>Reviews</h3>
+<% if @performance.reviews.empty? %>
+  <p> <em> <%= "There are no reviews yet" %> </em> </p>
+<% else %>
+  <% @performance.reviews.each do |review| %>
+  <p> Rating: <%= review.rating %> <br>
+    <%= review.description %>
+  </p>
+  <% end %>
+<% end %>
+
+<%= link_to "Write a review", new_performance_review_path(@performance) %>
