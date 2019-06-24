@@ -3,7 +3,11 @@ class PerformancesController < ApplicationController
   before_action :set_performance, only: [:show, :edit, :update, :destroy]
 
   def index
-    @performances = policy_scope(Performance)
+    if params[:query]
+      @performances = policy_scope(Performance).where(category: params[:query], price: params[:query])
+    else
+      @performances = policy_scope(Performance)
+    end
   end
 
   def show
