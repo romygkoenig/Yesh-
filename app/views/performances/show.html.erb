@@ -1,3 +1,14 @@
-<h1> My Performances</h1>
+<h1><%=@performance.name%></h1>
 
-<p><%=@performance.name%></p>
+<h3>Description</h3>
+<p><%=@performance.description%></p>
+<p><strong>Category:</strong> <%=@performance.category%></p>
+<p><strong>City:</strong> <%=@performance.city%></p>
+<p><strong>Price:</strong> <%=@performance.price%></p>
+
+<br><br>
+<h3>Reviews</h3>
+<% @performance.reviews.each do |review| %>
+  <p> <i class="fas fa-star"></i>*<%= review.rating %> </p>
+  <%= review.description %>
+<% end %>
