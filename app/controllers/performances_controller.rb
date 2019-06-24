@@ -2,7 +2,7 @@ class PerformancesController < ApplicationController
   before_action :set_performance, only: [:show]
 
   def index
-    @performances = Performance.all
+    @performances = policy_scope(Performance)
   end
 
   def show
@@ -10,11 +10,13 @@ class PerformancesController < ApplicationController
 
   def new
     @performance = Performance.new
+    authorize @performance
   end
 
   def create
     @performance = Performance.new(performance_params)
     @performance.user = current_user
+    authorize @performance
     if @performance.save
       redirect_to performance_path(@performance)
     else
