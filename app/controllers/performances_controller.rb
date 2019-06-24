@@ -1,4 +1,5 @@
 class PerformancesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_performance, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -53,6 +54,6 @@ class PerformancesController < ApplicationController
   end
 
   def performance_params
-    params.require(:performance).permit(:name, :description, :price, :category, :city)
+    params.require(:performance).permit(:name, :description, :price, :category, :city, :photo)
   end
 end
