@@ -1,20 +1,36 @@
-<h1>Performances</h1>
 
-
-
-<% @performances.each do |performance| %>
-<p>Name:<%= performance.name %></p>
-<p>Description:<%= performance.description %></p>
-<% if policy(performance).edit? %>
-<%= link_to "Update", edit_performance_path(performance) %>
+<%= form_tag performances_path, method: :get do %>
+  <%= select_tag "query",
+      options_for_select(['Singing', 'Dancing', 'Others'], params[:query] ), class: 'select2' %>
+      <%= submit_tag %>
 <% end %>
 
-<% if policy(performance).destroy? %>
-<%= link_to 'Destroy', performance, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @performances.each do |performance| %>
+      <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="card-performance">
+        <%= image_tag "https://previews.123rf.com/images/tonobalaguer/tonobalaguer1105/tonobalaguer110500299/9607639-mexican-man-serape-poncho-sombrero-playing-guitar-typical-mexico.jpg", class:'card-performance-img' %>
 
-<% end %>
-<br>
-<% if policy(Performance).create? %>
-  <%= link_to "New performance", new_performance_path %>
-<% end %>
+        <div class="card-performance-infos">
+          <div>
+            <h2><%= performance.name %></h2>
+            <p><%= performance.description %></p>
+            <p>City: <%=performance.city%></p>
+           <h2 class="card-performance-pricing"><%= performance.price %>$</h2>
+          </div>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/krokrob", class: 'card-performance-user avatar-bordered' %>
+          <% if policy(performance).edit? %>
+              <%= link_to "Update", edit_performance_path(performance) %>
+          <% end %>
+          <% if policy(performance).destroy? %>
+            <%= link_to 'Destroy', performance, method: :delete, data: { confirm: 'Are you sure?'} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+  <% if policy(Performance).create? %>
+    <p><%= link_to "New performance", new_performance_path %></p>
+  <% end %>
