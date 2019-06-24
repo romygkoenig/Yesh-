@@ -1,7 +1,7 @@
 <%= form_tag performances_path, method: :get do %>
   <%= select_tag "query",
       options_for_select(['Singing', 'Dancing', 'Others'], params[:query] ), class: 'select2' %>
-      <%= submit_tag %>
+  <%= submit_tag %>
 <% end %>
 
 <div class="container">
