@@ -1,5 +1,7 @@
 <h1><%=@performance.name%></h1>
 
+<%= cl_image_tag @performance.photo, height: 300, width: 400, crop: :fill %>
+
 <h3>Description</h3>
 <p><%=@performance.description%></p>
 <p><strong>Category:</strong> <%=@performance.category%></p>
