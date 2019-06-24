@@ -1,5 +1,5 @@
 class PerformancesController < ApplicationController
-  before_action :set_performance, only: [:show]
+  before_action :set_performance, only: [:show, :edit, :update, :destroy]
 
   def index
     @performances = policy_scope(Performance)
@@ -29,15 +29,23 @@ class PerformancesController < ApplicationController
   end
 
   def update
+    if @performance.update(performance_params)
+      redirect_to @performance, notice: 'Performance was successfully updated.'
+    else
+      render :edit
+    end
   end
 
-  def delete
+  def destroy
+    @performance.destroy
+    redirect_to performances_path, notice: 'Restaurant was successfully destroyed.'
   end
 
   private
 
   def set_performance
     @performance = Performance.find(params[:id])
+    authorize @performance
   end
 
   def performance_params

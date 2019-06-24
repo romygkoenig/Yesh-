@@ -1,1 +1,20 @@
-<h1>All available performances</h1>
+<h1>Performances</h1>
+
+
+
+<% @performances.each do |performance| %>
+<p>Name:<%= performance.name %></p>
+<p>Description:<%= performance.description %></p>
+<% if policy(performance).edit? %>
+<%= link_to "Update", edit_performance_path(performance) %>
+<% end %>
+
+<% if policy(performance).destroy? %>
+<%= link_to 'Destroy', performance, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<% end %>
+<br>
+<% if policy(Performance).create? %>
+  <%= link_to "New performance", new_performance_path %>
+<% end %>
