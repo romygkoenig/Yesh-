@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.performance = @performance
-    if @review.save
+    @review.user = current_user
+    if @review.save!
       redirect_to @performance, notice: 'Review was successfully created.'
     else
       flash[:alert] = "Something went wrong. Please try again."

@@ -1,28 +1,48 @@
-<h1><%=@performance.name%></h1>
 
-<%= cl_image_tag @performance.photo, height: 300, width: 400, crop: :fill %>
+<div class="container-custom">
+  <h1><%=@performance.name%></h1>
 
-<h3>Description</h3>
-<p><%=@performance.description%></p>
-<p><strong>Category:</strong> <%=@performance.category%></p>
-<p><strong>City:</strong> <%=@performance.city%></p>
-<p><strong>Price:</strong> <%=@performance.price%></p>
+<div class="row">
+  <div class="col-sm-12 col-lg-6">
+    <%= cl_image_tag @performance.photo, height: 300, width: 400, crop: :fill %>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <h3>Description</h3>
+    <p><%=@performance.description%></p>
+    <p><strong>Category:</strong> <%=@performance.category%></p>
+    <p><strong>City:</strong> <%=@performance.city%></p>
+    <p><strong>Price:</strong> <%=@performance.price%></p>
+    <%= link_to "Book", new_performance_booking_path(@performance), class: "btn btn-primary"%>
+  </div>
+</div>
+  <br>
 
-<%= link_to "Book", new_performance_booking_path(@performance), class: "btn btn-primary"%>
-
-<br>
-<br>
-<h3>Reviews</h3>
-<% if @performance.reviews.empty? %>
-  <p> <em> <%= "There are no reviews yet" %> </em> </p>
-<% else %>
-  <% @performance.reviews.each do |review| %>
-  <p> <% review.rating.times do %>
-    <span style="color: #EDB867"> <%= "<i class='fas fa-star'></i>".html_safe %></span>
-    <% end %><br>
-    <%= review.description %>
-  </p>
+  <h3>Reviews</h3>
+  <%= link_to "Write a review", new_performance_review_path(@performance) %>
+  <% if @performance.reviews.empty? %>
+    <p> <em> <%= "There are no reviews yet" %> </em> </p>
+  <% else %>
+    <% @performance.reviews.each do |review| %>
+    <div class="d-flex flex-row">
+      <div class="p-2">
+        <% if review.user.nil? %>
+          <%= image_tag "face.png", class:"avatar" %>
+        <% else %>
+        <div class="details-reviewer">
+          <%= cl_image_tag review.user.photo, height: 40, width: 40, crop: :fill, class: "avatar avatar-review" %> <br>
+          <span class="first-name-review"><%= review.user.first_name %></span>
+        </div>
+        <% end %>
+      </div>
+      <div class="p-2">
+        <p> <% review.rating.times do %>
+          <span style="color: #EDB867"> <%= "<i class='fas fa-star'></i>".html_safe %></span>
+          <% end %><br>
+          <%= review.description %>
+        </p>
+      </div>
+    </div>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= link_to "Write a review", new_performance_review_path(@performance) %>
+</div>
