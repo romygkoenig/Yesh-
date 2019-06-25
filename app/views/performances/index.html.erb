@@ -1,36 +1,41 @@
-<%= form_tag performances_path, method: :get do %>
-  <%= select_tag "query",
-      options_for_select(['Singing', 'Dancing', 'Others'], params[:query] ), class: 'select2' %>
-  <%= submit_tag %>
-<% end %>
 
 <div class="container">
+  <div class="form-group d-flex justify-content-center mt-3">
+  <%= form_tag performances_path, method: :get do %>
+    <%= select_tag "query",
+        options_for_select(['Singing', 'Dancing', 'Others'], params[:query] ), class: 'form-control select2' %>
+    <%= submit_tag 'Search Category', class:'card-btn'%>
+    <% end %>
+    </div>
   <div class="row">
     <% @performances.each do |performance| %>
       <div class="col-sm-12 col-md-6 col-lg-3">
-      <div class="card-performance">
-        <%= cl_image_tag performance.photo, height: 300, width: 400, crop: :fill, class:'card-performance-img' %>
-
-        <div class="card-performance-infos">
-          <div>
-            <h2><%= link_to performance.name, performance_path(performance) %></h2>
-            <p><%= performance.description %></p>
-            <p>City: <%=performance.city%></p>
-           <h2 class="card-performance-pricing"><%= performance.price %>$</h2>
-          </div>
-            <%= cl_image_tag performance.user.photo, class: 'card-performance-user avatar-bordered' %>
-          <% if policy(performance).edit? %>
-              <%= link_to "Update", edit_performance_path(performance) %>
-          <% end %>
-          <% if policy(performance).destroy? %>
-            <%= link_to 'Destroy', performance, method: :delete, data: { confirm: 'Are you sure?'} %>
-          <% end %>
+      <%= link_to performance_path(performance) do %>
+          <div class="card-performance">
+            <%= cl_image_tag performance.photo, height: 300, width: 400, crop: :fill, class:'card-performance-img' %>
+              <div class="card-performance-infos">
+                  <div>
+                    <h2><%= performance.name%></h2>
+                     <% if performance.description.length > 25 %>
+                          <p class='ellipsis' ><%= performance.description %></p>
+                      <% else%>
+                          <p><%= performance.description %></p>
+                     <% end %>
+                    <p><strong><%=performance.city%></strong></p>
+                  </div>
+                  <h2 class="card-performance-pricing pb-7"><%= performance.price %>$</h2>
+                  <%= cl_image_tag performance.user.photo, class: 'card-performance-user avatar-bordered' %>
+              </div>
+            </div>
+          <%end%>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
 </div>
   <% if policy(Performance).create? %>
-    <p><%= link_to "New performance", new_performance_path %></p>
+    <p><%= link_to "Create a new performance", new_performance_path, class:'card-btn btn-block text-center my-3' %></p>
   <% end %>
+</div>
+
+
+
