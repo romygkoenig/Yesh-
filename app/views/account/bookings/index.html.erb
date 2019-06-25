@@ -1,15 +1,20 @@
-<h1>My Bookings</h1>
+<h1 align="center">My Bookings</h1>
 <% @bookings.each do |booking| %>
-<p>Performing: <%= booking.performance.name %></p>
-<p>Date: <%= booking.date %></p>
-<p>Time: <%= booking.time %></p>
-<% if policy(booking).edit? %>
-<%= link_to "Update", edit_booking_path(booking) %>
-<% end %>
-<% if policy(booking).destroy? %>
-<%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+<div class="card-product">
+  <%= cl_image_tag booking.performance.photo %>
+  <div class="card-product-infos">
+    <h2><%= booking.performance.name %></h2>
+    <p>Date: <%= booking.date %></p>
+    <p>Time: <%= booking.time %></p>
+    <% if policy(booking).edit? %>
+    <%= link_to "Update", edit_booking_path(booking) %>
+    <% end %>
+    <% if policy(booking).destroy? %>
+    <%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
 
-<% end %>
+    </div>
+  </div>
+    <% end %>
 
 
