@@ -3,5 +3,5 @@
 <%= simple_form_for([@performance, @review]) do |f| %>
   <%= f.input :description %>
   <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-  <%= f.submit "Post review" %>
+  <%= f.submit "Post review", class:'card-btn' %>
 <% end %>
