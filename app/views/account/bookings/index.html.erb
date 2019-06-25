@@ -6,15 +6,18 @@
     <h2><%= booking.performance.name %></h2>
     <p>Date: <%= booking.date %></p>
     <p>Time: <%= booking.time %></p>
+
     <% if policy(booking).edit? %>
-    <%= link_to "Update", edit_booking_path(booking) %>
+      <%= link_to edit_booking_path(booking) do %>
+      <span data-toggle="tooltip" data-placement="top" title="Edit booking"><i class="fas fa-edit"></i></span>
+      <% end %>
     <% end %>
     <% if policy(booking).destroy? %>
-    <%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to booking, method: :delete, data: { confirm: 'Are you sure?' } do%>
+        <span data-toggle="tooltip" data-placement="top" title="Delete performance"> <i class="fas fa-trash"></i></span>
+      <% end %>
     <% end %>
 
     </div>
   </div>
     <% end %>
-
-
