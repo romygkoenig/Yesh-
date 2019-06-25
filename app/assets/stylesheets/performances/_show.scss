@@ -3,14 +3,10 @@
   margin: 0 auto;
 }
 
-h1 {
+#performance-title {
   margin-top: 16px;
   margin-bottom: 16px;
   font-weight: 500;
-}
-
-img {
-  margin-bottom: 8px;
 }
 
 .avatar-review {
@@ -23,4 +19,13 @@ img {
 
 .details-reviewer {
   text-align: center;
+}
+
+.performance-options {
+  font-size: 16px;
+  opacity: 0.4;
+}
+
+.performance-image {
+  margin-bottom: 8px;
 }
