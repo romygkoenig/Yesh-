@@ -18,7 +18,7 @@
             <p>City: <%=performance.city%></p>
            <h2 class="card-performance-pricing"><%= performance.price %>$</h2>
           </div>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/krokrob", class: 'card-performance-user avatar-bordered' %>
+            <%= cl_image_tag performance.user.photo, class: 'card-performance-user avatar-bordered' %>
           <% if policy(performance).edit? %>
               <%= link_to "Update", edit_performance_path(performance) %>
           <% end %>

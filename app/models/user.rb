@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :performances, dependent: :destroy
   has_many :bookings
+
+  mount_uploader :photo, PhotoUploader
+
 end
