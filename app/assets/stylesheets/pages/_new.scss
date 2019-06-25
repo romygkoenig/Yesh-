@@ -1,0 +1,27 @@
+h2 {
+  text-align: center;
+  margin: 25px;
+  color: #620189;
+}
+
+// .img {
+//   background-position:  100%;
+//   background-size: 50%;
+//   height: 100vh;
+// }
+
+
+.right-half {
+  background: url(https://media2.giphy.com/media/124QifLHDXLd0Q/giphy.webp?cid=790b76115d11e4fc5a43384a5991bebc&rid=giphy.webp);
+  width: 50%;
+  position: absolute;
+  left: 0px;
+  height: 100%;
+}
+
+.left-half {
+  width: 50%;
+  position: absolute;
+  right: 0px;
+  height: 100%;
+}
