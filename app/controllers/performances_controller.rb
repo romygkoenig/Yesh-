@@ -5,18 +5,18 @@ class PerformancesController < ApplicationController
   def index
     if params[:city_query].present? && params[:category_all_query].present? && params[:price_all_query].present?
       @performances = policy_scope(Performance).search_by_city(params[:city_query])
-      @performances = @performances.where('price< ?', params[:price_all_query])
+      @performances = @performances.where('price<= ?', params[:price_all_query])
       return @performances if params[:category_all_query] == ["All"]
       @performances = @performances.where(category: params[:category_all_query])
     elsif params[:city_query].present? && params[:price_all_query].present?
       @performances = policy_scope(Performance).search_by_city(params[:city_query])
-      @performances = @performances.where('price < ?', params[:price_all_query])
+      @performances = @performances.where('price <= ?', params[:price_all_query])
     elsif params[:city_query].present? && params[:category_all_query].present?
       @performances = policy_scope(Performance).search_by_city(params[:city_query])
       return @performances if params[:category_all_query] == ["All"]
       @performances = @performances.where(category: params[:category_all_query])
     elsif params[:category_all_query].present? && params[:price_all_query].present?
-      @performances = policy_scope(Performance).where('price< ?', params[:price_all_query])
+      @performances = policy_scope(Performance).where('price<= ?', params[:price_all_query])
       return @performances if params[:category_all_query] == ["All"]
       @performances = @performances.where(category: params[:category_all_query])
     elsif params[:city_query].present?
@@ -25,7 +25,7 @@ class PerformancesController < ApplicationController
       return @performances = policy_scope(Performance) if params[:category_all_query] == ["All"]
       @performances = policy_scope(Performance).where(category: params[:category_all_query])
     elsif params[:price_all_query].present?
-      @performances = policy_scope(Performance).where('price< ?', params[:price_all_query])
+      @performances = policy_scope(Performance).where('price<= ?', params[:price_all_query])
     # elsif params[:city_query].present? && (params[:category_all_query].present? || params[:price_all_query].present?)
       # search_term = (params[:city_query] + ' ' + params[:category_all_query] + ' ' + params[:price_all_query]).to_a
       # @performances = policy_scope(Performance).search_by_city_price(search_term)

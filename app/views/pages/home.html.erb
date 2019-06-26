@@ -1,11 +1,11 @@
 <div class="banner" style="background-image: url(https://media.giphy.com/media/l46C8nSNYWU567Hs4/giphy.gif);">
 <%= image_tag 'logo', class:"landing-page-image"%>
 
-<!-- <div class="container">
-  <input type="text" placeholder="Where is your party?">
+<!-- <div class="landing-page-container">
+  <input type="text" name="city_query" placeholder="Where is your party?">
   <div class="search"></div>
-</div>
- -->
+</div> -->
+
   <%= form_tag performances_path, method: :get do %>
     <%= text_field_tag :city_query,
       params[:city_query],
@@ -20,3 +20,4 @@
   </div>
 </div>
 
+<!-- <input type="text" name="city_query" id="city_query" placeholder="Where is your party?" class="form-control landing-page-search"> -->
