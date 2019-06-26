@@ -49,17 +49,16 @@
             <!-- Material input password confirmation -->
             <div class="md-form">
                 <i class="fa fa-exclamation-triangle prefix grey-text"></i>
-                 <%= f.input :password_confirmation,
+                <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
             </div>
 
             <!-- Material input picture upload -->
             <div class="md-form">
-                <i class="fa fa-exclamation-triangle prefix grey-text"></i>
-                 <%= f.input :photo,
-                    required: true %>
-                 <%= f.input :photo_cache, as: :hidden %>
+              <i class="fas fa-camera prefix grey-text"></i>
+                <%= f.input :photo, required: true, input_html: { class: 'hidden' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+                <%= f.input :photo_cache, as: :hidden %>
             </div>
           </div>
           <div class="text-center py-4 mt-3">

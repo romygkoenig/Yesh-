@@ -4,8 +4,7 @@
   // padding: 500px 0;
   background-color: black;
   position: relative;
-  height: 300px;
-  margin-bottom: 70px;
+  height: 100vh;
 }
 
 .banner h1 {
@@ -22,7 +21,6 @@
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,1);
   font-weight: bold;
-
 }
 
 .statement {
@@ -31,5 +29,28 @@
   left: 60px;
 }
 
+.banner_booking {
+  background-size: cover;
+  background-position: center;
+  // padding: 500px 0;
+  background-color: black;
+  position: relative;
+  height: 300px;
+  margin-bottom: 70px;
+}
 
+.banner_booking h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,1);
+  font-size: 50px;
+  font-weight: bold;
 
+}
+
+.banner_booking h2 {
+  font-size: 32px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,1);
+  font-weight: bold;
+}
