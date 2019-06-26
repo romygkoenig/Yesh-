@@ -9,9 +9,6 @@ class Performance < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
 
-  geocoded_by :city
-  after_validation :geocode, if: :will_save_change_to_city?
-
   include PgSearch
   pg_search_scope :search_by_city,
                   against: :city,
