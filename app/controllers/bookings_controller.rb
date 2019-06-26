@@ -54,3 +54,4 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:date, :time, :performance_id, :user_id)
   end
 end
+
