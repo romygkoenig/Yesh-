@@ -23,7 +23,14 @@
   color: white;
 }
 
-.card-btn:active {
+.card-btn:active a {
   position:relative;
   top:1px;
+}
+
+.devise-btn {
+  a {
+  color: #620089;
+  }
+  padding-top: 15px;
 }
