@@ -7,4 +7,7 @@ class Performance < ApplicationRecord
   validates :price, numericality: true
 
   mount_uploader :photo, PhotoUploader
+
+  geocoded_by :city
+  after_validation :geocode, if: :will_save_change_to_city?
 end

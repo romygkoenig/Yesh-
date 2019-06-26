@@ -4,9 +4,17 @@ class PerformancesController < ApplicationController
 
   def index
     if params[:query].present?
-      @performances = policy_scope(Performance).where(category: params[:query])
+      @performances = policy_scope(Performance).where(category: params[:query]).where.not(latitude: nil, longitude: nil)
     else
-      @performances = policy_scope(Performance)
+      @performances = policy_scope(Performance).where.not(latitude: nil, longitude: nil)
+    end
+
+     @markers = @performances.map do |performance|
+      {
+        lat: performance.latitude,
+        lng: performance.longitude,
+
+      }
     end
   end
 
