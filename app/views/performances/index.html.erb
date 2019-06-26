@@ -1,5 +1,6 @@
 
 <div class="container">
+
   <div class="form-group d-flex justify-content-center mt-3">
   <%= form_tag performances_path, method: :get do %>
     <%= text_field_tag :city_query, params[:city_query], class: "form-control"
@@ -12,8 +13,11 @@
         options = {min: 0, max: 1000} %>
         <%# label_tag :price_all_query, 'Price range' %>
     <%= submit_tag 'Update search', class:'card-btn'%>
+
     <% end %>
     </div>
+
+
   <div class="row">
     <% @performances.each do |performance| %>
       <div class="col-sm-12 col-md-6 col-lg-3">

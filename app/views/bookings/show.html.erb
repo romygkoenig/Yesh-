@@ -1,2 +1,41 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<div class="banner_booking" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "https://www.visitexeter.com/imageresizer/?image=%2Fdbimgs%2FFireworks.jpg&action=Background_Overlay" %>')">
+  <div class="statement">
+    <h1><%= @booking.performance.name %></h1>
+    <h2 class="header"> Congratulations! You're Party will be a full success with <%= @booking.performance.name %></h2>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row single_booking">
+   <div class="col-12 col-lg-7 right_details">
+      <h2 class='header_details'>Booking Details</h2>
+        <div class="booking_details">
+          <div class="d-flex justify-content-between">
+            <p>When?</p>
+            <p><%= @booking.date%> | <%= @booking.time %></p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p>Where?</p>
+            <p><%# @booking.address %></p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p>What?</p>
+            <p><%= @booking.performance.description %></p>
+          </div>
+        </div>
+      <div class="payment_details">
+        <h2>Payment Details</h2>
+        <h2><%= @booking.performance.price %> $</h2>
+      </div>
+      <p><strong>Cancellation Policy</strong></p>
+      <p>For a full refund, cancel at least 24 hours in advance of the start date of the experience.</p>
+   </div>
+    <div class="col-12 col-lg-4">
+      <h2 class="header_details">Location</h2>
+      <p>DISPLAY MAP HERE</p>
+    </div>
+  </div>
+    <%= link_to 'See all your bookings', account_bookings_path, class:'card-btn text-btn btn-block'  %>
+</div>
+
