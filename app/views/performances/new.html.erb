@@ -1,20 +1,73 @@
 <div class="container">
-    <h2 class="header_new">Add your performance</h2>
+    <h2 class="h4 header-signup py-4">Add Your Performance</h2>
   <div class="row margin-top">
    <div class="left-half col-sm-6">
+    <!-- Card -->
+    <div class="card">
 
-    <%= simple_form_for(@performance) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :price %>
-      <%= f.input :category, :collection => ["Singing", "Dancing", "Others"],
-      :input_html => {:class => 'selectpicker'}%>
-      <%= f.input :city %>
-      <%= f.input :photo %>
-      <%= f.input :photo_cache, as: :hidden, class:'card-btn' %>
-      <%= f.submit class: 'card-btn'%>
-    <% end %>
+      <!-- Card body -->
+      <div class="card-body">
+
+        <!-- Material form register -->
+        <p class="h4 header_perf_new py-4">Performance Details</p>
+      <%= simple_form_for(@performance) do |f| %>
+          <div class="form-inputs">
+
+            <!-- Material input text -->
+            <div class="md-form">
+              <i class="fa fa-user prefix grey-text"></i>
+              <%= f.input :name %>
+            </div>
+
+               <!-- Material input text -->
+              <div class="md-form">
+                <i class="far fa-sticky-note prefix grey-text"></i>
+               <%= f.input :description %>
+              </div>
+
+              <!-- Material input email -->
+              <div class="md-form">
+                <i class="fas fa-dollar-sign prefix grey-text"></i>
+                <%= f.input :price %>
+              </div>
+
+              <!-- Material input password -->
+              <div class="md-form">
+                <i class="fas fa-th prefix grey-text"></i>
+                <%= f.input :category, :collection => ["Singing", "Dancing", "Others"],
+        :input_html => {:class => 'selectpicker'}%>
+              </div>
+
+              <!-- Material input password confirmation -->
+              <div class="md-form">
+                <i class="fas fa-map-marker-alt prefix grey-text"></i>
+                <%= f.input :city %>
+              </div>
+
+              <!-- Material input picture upload -->
+              <div class="md-form">
+                <i class="fas fa-camera prefix grey-text"></i>
+                  <%= f.input :photo, required: true, input_html: { class: 'hidden' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+                  <%= f.input :photo_cache, as: :hidden %>
+              </div>
+            </div>
+            <div class="text-center py-4 mt-3">
+              <%= f.submit class: 'card-btn'%>
+              </div>
+            </div>
+          <% end %>
+          <!-- Material form register -->
+      </div>
+      <!-- Card body -->
+    </div>
+    <!-- Card -->
+
     </div>
     <div class="right-half"></div>
   </div>
 </div>
+
+
+
+
+

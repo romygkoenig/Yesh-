@@ -1,11 +1,41 @@
-<h1> Book <%= @performance.name %> </h1>
+<div class="container my-5">
 
-<%= simple_form_for([@performance, @booking]) do |f| %>
-  <%= f.input :date, as: :string, input_html: {class: "datepicker"} %>
-  <%= f.input :time, as: :string, input_html: {class: "timepicker"} %>
-  <%= f.input :address, as: :string %>
+  <!-- Card -->
+  <div class="card">
 
-  <%= f.submit %>
-<% end %>
+    <!-- Card body -->
+    <div class="card-body">
 
+      <!-- Material form register -->
+      <h1 class="h4 header-signup py-4"> Book <%= @performance.name %> </h1>
+      <%= simple_form_for([@performance, @booking]) do |f| %>
+        <div class="form-inputs">
 
+          <!-- Material input text -->
+          <div class="md-form">
+            <i class="far fa-calendar prefix grey-text"></i>
+            <%= f.input :date, as: :string, input_html: {class: "datepicker"} %>
+          </div>
+
+             <!-- Material input text -->
+            <div class="md-form">
+              <i class="far fa-clock prefix grey-text"></i>
+              <%= f.input :time, as: :string, input_html: {class: "timepicker"} %>
+            </div>
+
+            <!-- Material input email -->
+            <div class="md-form">
+              <i class="fas fa-map-marker-alt prefix grey-text"></i>
+              <%= f.input :address, as: :string %>
+            </div>
+          </div>
+          <div class="text-center py-4 mt-3">
+            <%= f.button :submit, "Create your new booking", class:'card-btn btn-block' %>
+          </div>
+        <% end %>
+        <!-- Material form register -->
+    </div>
+    <!-- Card body -->
+  </div>
+  <!-- Card -->
+</div>
