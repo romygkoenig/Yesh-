@@ -3,18 +3,37 @@ class PerformancesController < ApplicationController
   before_action :set_performance, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query].present?
-      @performances = policy_scope(Performance).where(category: params[:query]).where.not(latitude: nil, longitude: nil)
+    if params[:city_query].present? && params[:category_all_query].present? && params[:price_all_query].present?
+      @performances = policy_scope(Performance).search_by_city(params[:city_query])
+      @performances = @performances.where('price< ?', params[:price_all_query])
+      return @performances if params[:category_all_query] == ["All"]
+      @performances = @performances.where(category: params[:category_all_query])
+    elsif params[:city_query].present? && params[:price_all_query].present?
+      @performances = policy_scope(Performance).search_by_city(params[:city_query])
+      @performances = @performances.where('price < ?', params[:price_all_query])
+    elsif params[:city_query].present? && params[:category_all_query].present?
+      @performances = policy_scope(Performance).search_by_city(params[:city_query])
+      return @performances if params[:category_all_query] == ["All"]
+      @performances = @performances.where(category: params[:category_all_query])
+    elsif params[:category_all_query].present? && params[:price_all_query].present?
+      @performances = policy_scope(Performance).where('price< ?', params[:price_all_query])
+      return @performances if params[:category_all_query] == ["All"]
+      @performances = @performances.where(category: params[:category_all_query])
+    elsif params[:city_query].present?
+      @performances = policy_scope(Performance).search_by_city(params[:city_query])
+    elsif params[:category_all_query].present?
+      return @performances = policy_scope(Performance) if params[:category_all_query] == ["All"]
+      @performances = policy_scope(Performance).where(category: params[:category_all_query])
+    elsif params[:price_all_query].present?
+      @performances = policy_scope(Performance).where('price< ?', params[:price_all_query])
+    # elsif params[:city_query].present? && (params[:category_all_query].present? || params[:price_all_query].present?)
+      # search_term = (params[:city_query] + ' ' + params[:category_all_query] + ' ' + params[:price_all_query]).to_a
+      # @performances = policy_scope(Performance).search_by_city_price(search_term)
+
+      # Performance.where('price< ?', params[:price_all_query])
+      # search_term = "#{params[:city_query]} #{params[:price_all_query]}"
     else
-      @performances = policy_scope(Performance).where.not(latitude: nil, longitude: nil)
-    end
-
-     @markers = @performances.map do |performance|
-      {
-        lat: performance.latitude,
-        lng: performance.longitude,
-
-      }
+      @performances = policy_scope(Performance)
     end
   end
 

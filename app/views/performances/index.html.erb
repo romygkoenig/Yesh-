@@ -2,9 +2,16 @@
 <div class="container">
   <div class="form-group d-flex justify-content-center mt-3">
   <%= form_tag performances_path, method: :get do %>
-    <%= select_tag "query",
-        options_for_select(['Singing', 'Dancing', 'Others'], params[:query] ), class: 'form-control select2' %>
-    <%= submit_tag 'Search Category', class:'card-btn'%>
+    <%= text_field_tag :city_query, params[:city_query], class: "form-control"
+    %>
+    <%= select_tag :category_all_query,
+        options_for_select(['All','Singing', 'Dancing', 'Other']), multiple: true, class: 'form-control' %>
+    <%= text_field_tag :price_all_query %>
+    <%# range_field_tag :price_all_query,
+        #options = {min: 0, max: @performances.order(price: :desc).last.price}
+        options = {min: 0, max: 1000} %>
+        <%# label_tag :price_all_query, 'Price range' %>
+    <%= submit_tag 'Update search', class:'card-btn'%>
     <% end %>
     </div>
   <div class="row">

@@ -1,4 +1,12 @@
 <div class="banner" style="background-image: url(https://media.giphy.com/media/l46C8nSNYWU567Hs4/giphy.gif);">
+
+  <%= form_tag performances_path, method: :get do %>
+    <%= text_field_tag :city_query,
+      params[:city_query],
+      # class: "form-control",
+      placeholder: "Where is your party?" %>
+      <%= submit_tag 'Find performance', class:'card-btn'%>
+  <% end %>
   <div class="statement">
     <h1><strong style="color: #620089">YESH!</strong> - A litte Party never killed nobody!</h1>
     <h2>Book <strong style="color: #620089">local performers</strong> and bring your Party to the next level </h2>
