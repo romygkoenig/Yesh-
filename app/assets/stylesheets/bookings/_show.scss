@@ -1,0 +1,48 @@
+.single_booking {
+  display: flex;
+  justify-content: center;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-bottom: 30px;
+}
+
+.single_booking h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.single_booking .header {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.payment_details { // header of payment details
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  color: #620089;
+}
+
+.right_details {
+  margin-right: 15px;
+}
+
+.header_details {
+  margin-bottom: 20px;
+  color: #620089;
+  font-weight: bolder;
+}
+
+.payment_details h2 {
+  font-weight: bolder;
+}
+
+.booking_details {
+  margin-bottom: 70px;
+}
+
+.text-btn {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+}
