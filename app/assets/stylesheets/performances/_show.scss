@@ -1,9 +1,9 @@
-.container-custom {
-  width: 80vw;
-  margin: 0 auto;
-}
+// .container-custom {
+//   width: 80vw;
+//   margin: 0 auto;
+// }
 
-#performance-title {
+.performance-title {
   margin-top: 16px;
   margin-bottom: 16px;
   font-weight: 500;
@@ -28,4 +28,52 @@
 
 .performance-image {
   margin-bottom: 8px;
+}
+
+.return-link {
+  margin-top:8px;
+  display: block;
+  color: #5C1C83;
+  }
+
+// ==================================================
+
+.card-performance {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-performance > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-performance h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-performance p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-performance .card-performance-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-performance-infos .card-performance-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
