@@ -21,12 +21,12 @@
             <% end %>
             <% if policy(booking).edit? %>
             <%= link_to edit_booking_path(booking) do %>
-            <span style="padding-right: 93px;" data-toggle="tooltip" data-placement="top" title="Edit booking"><i class="fas fa-edit"></i>Edit Booking</span>
+            <span style="padding-right: 93px;" data-toggle="tooltip" data-placement="top" title="Edit booking"><i class="fas fa-edit"></i>Edit</span>
             <% end %>
             <% end %>
             <% if policy(booking).destroy? %>
             <%= link_to booking, method: :delete, data: { confirm: 'Are you sure?' } do%>
-            <span data-toggle="tooltip" data-placement="top" title="Delete performance"> <i class="fas fa-trash"></i>Cancel Booking</span>
+            <span data-toggle="tooltip" data-placement="top" title="Delete performance"> <i class="fas fa-trash"></i>Cancel</span>
             <% end %>
             <% end %>
           </div>
