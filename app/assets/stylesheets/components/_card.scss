@@ -113,7 +113,7 @@ a:hover {
  //for index account bookings
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 150px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -123,7 +123,7 @@ a:hover {
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 150px;
   object-fit: cover;
 }
 
@@ -133,7 +133,7 @@ a:hover {
   margin: 0;
 }
 
-.card-product p {
+.card-product p, span {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -141,7 +141,31 @@ a:hover {
   margin-top: 8px;
 }
 
+.card-product a {
+  color: black;
+  & :hover {
+    color: black;
+  }
+}
+
+
 .card-product .card-product-infos {
   padding: 16px;
 }
 
+.main {
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.cards-container {
+   flex-grow: 1;
+}
+
+.cards-container h1 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #620089;
+}

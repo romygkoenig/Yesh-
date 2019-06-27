@@ -1,45 +1,47 @@
-<h1 align="center">My Bookings</h1>
-<div class="container">
-    <div id="bookings">
-     <% if @bookings.blank? %>
-     <p align="center"><em>What are you waiting for, <%= current_user.first_name %>? Book your first performance with Yesh!</em></p>
-     <% else %>
-  <div class="row">
-     <div class="col-6">
-      <% @bookings.each do |booking| %>
-      <div class="card-product">
-        <%= cl_image_tag booking.performance.photo %>
-        <div class="card-product-infos">
-          <h2><%= booking.performance.name %></h2>
-          <p>Date: <%= booking.date %></p>
-          <p>Time: <%= booking.time %></p>
-          <p>Address: <%= booking.address %></p>
+<div class="main">
 
-          <% if policy(booking).edit? %>
-          <%= link_to edit_booking_path(booking) do %>
-          <span data-toggle="tooltip" data-placement="top" title="Edit booking"><i class="fas fa-edit"></i></span>
+  <div class="container cards-container">
+    <h1 align="center">My Bookings</h1>
+    <div class="row">
+      <% @bookings.each do |booking| %>
+      <div class="col-12">
+        <div class="card-product">
+          <%= link_to booking_path(booking) do %>
+            <%= cl_image_tag booking.performance.photo %>
           <% end %>
-          <% end %>
-          <% if policy(booking).destroy? %>
-          <%= link_to booking, method: :delete, data: { confirm: 'Are you sure?' } do%>
-          <span data-toggle="tooltip" data-placement="top" title="Delete performance"> <i class="fas fa-trash"></i></span>
-          <% end %>
-          <% end %>
+          <div class="card-product-infos">
+            <%= link_to booking_path(booking) do %>
+              <h2><%= booking.performance.name %></h2>
+              <p><strong>Date:</strong> <%= booking.date %></p>
+              <p><strong>Time:</strong> <%= booking.time %></p>
+              <p><strong>Address:</strong> <%= booking.address %></p>
+            <% end %>
+            <% if policy(booking).edit? %>
+            <%= link_to edit_booking_path(booking) do %>
+            <span style="padding-right: 93px;" data-toggle="tooltip" data-placement="top" title="Edit booking"><i class="fas fa-edit"></i>Edit Booking</span>
+            <% end %>
+            <% end %>
+            <% if policy(booking).destroy? %>
+            <%= link_to booking, method: :delete, data: { confirm: 'Are you sure?' } do%>
+            <span data-toggle="tooltip" data-placement="top" title="Delete performance"> <i class="fas fa-trash"></i>Cancel Booking</span>
+            <% end %>
+            <% end %>
+          </div>
+
         </div>
+
       </div>
       <% end %>
     </div>
-    <div class="col-6">
-      <div
-      id="map"
-      style="width: 100%;
-      height: 550px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      ></div>
-    </div>
   </div>
-  <% end %>
-</div>
-</div>
 
+
+  <div
+  id="map"
+  style="width: 1200px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+
+
+</div>
