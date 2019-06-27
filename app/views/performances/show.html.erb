@@ -1,5 +1,6 @@
 
 <div class="container-custom">
+  <%= link_to "< All results", performances_path %>
   <h1 id="performance-title">
     <%=@performance.name%>
     <% if @performance.user == current_user %>
@@ -16,7 +17,10 @@
     <%= cl_image_tag @performance.photo, height: 300, width: 400, crop: :fill %>
   </div>
   <div class="col-sm-12 col-md-6">
-    <h3 class="text-center">Description</h3>
+    <h3>Your Performer</h3>
+    <p class="avatar"><%= @performance.user.photo %></p>
+    <%# raise %>
+    <h3>Description</h3>
     <p><%=@performance.description%></p>
     <p><strong>Category:</strong> <%=@performance.category%></p>
     <p><strong>City:</strong> <%=@performance.city%></p>

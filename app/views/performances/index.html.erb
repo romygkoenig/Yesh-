@@ -1,13 +1,15 @@
 
 <div class="container">
 
-  <div class="form-group d-flex justify-content-center mt-3">
+  <div class="form-inline ">
   <%= form_tag performances_path, method: :get do %>
-    <%= text_field_tag :city_query, params[:city_query], class: "form-control"
+    <%= text_field_tag :city_query, params[:city_query], class: "form-control mb-2 mr-sm-2", placeholder:"City"
     %>
+    <%= label_tag "city_query", "City" %>
+    <%= text_field_tag :price_all_query, params[:price_all_query], class:"form-control", placeholder:"Max. price" %>
+    <%= label_tag "price_all_query", "Max. price" %>
     <%= select_tag :category_all_query,
-        options_for_select(['All','Singing', 'Dancing', 'Other']), multiple: true, class: 'form-control' %>
-    <%= text_field_tag :price_all_query %>
+        options_for_select(['All','Singing', 'Dancing', 'Other']), multiple: true, class: 'form-control select2', placeholder:"Category" %>
     <%# range_field_tag :price_all_query,
         #options = {min: 0, max: @performances.order(price: :desc).last.price}
         options = {min: 0, max: 1000} %>
