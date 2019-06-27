@@ -15,9 +15,9 @@
           <div class="card-product-infos">
             <%= link_to booking_path(booking) do %>
               <h2><%= booking.performance.name %></h2>
-              <p><strong>Date:</strong> <%= booking.date %></p>
-              <p><strong>Time:</strong> <%= booking.time %></p>
-              <p><strong>Address:</strong> <%= booking.address %></p>
+              <p class="mybookings"><strong>Date:</strong> <%= booking.date %></p>
+              <p class="mybookings"><strong>Time:</strong> <%= booking.time %></p>
+              <p class="mybookings"><strong>Address:</strong> <%= booking.address %></p>
             <% end %>
             <% if policy(booking).edit? %>
             <%= link_to edit_booking_path(booking) do %>
