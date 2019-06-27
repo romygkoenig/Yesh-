@@ -1,12 +1,13 @@
 <div class="banner" style="background-image: url(https://media.giphy.com/media/l46C8nSNYWU567Hs4/giphy.gif);">
 <%= image_tag 'logo', class:"landing-page-image"%>
 
-<!-- <div class="container">
-  <input type="text" placeholder="Where is your party?">
-  <div class="search"></div>
-</div>
- -->
-  <%= form_tag performances_path, method: :get do %>
+<form action="/performances" accept-charset="UTF-8" method="get">
+  <div class="landing-page-container">
+    <input type="text" name="city_query" placeholder="Where is your party?">
+    <div class="search"></div>
+  </div>
+</form>
+  <% form_tag performances_path, method: :get do %>
     <%= text_field_tag :city_query,
       params[:city_query],
       placeholder: "Where is your party?",
@@ -15,8 +16,9 @@
   <% end %>
 
   <div class="statement">
-    <!-- <h1><strong style="color: #620089">YESH!</strong> - A litte Party never killed nobody!</h1> -->
-    <!-- <h2>Book <strong style="color: #620089">local performers</strong> and bring your Party to the next level </h2> -->
+    <h1>A litte Party Never Killed Nobody!</h1>
+    <h2>Book <strong style="color: #620089">Local Performers</strong> and Bring Your Party to the Next Level </h2>
   </div>
 </div>
 
+<!-- <input type="text" name="city_query" id="city_query" placeholder="Where is your party?" class="form-control landing-page-search"> -->

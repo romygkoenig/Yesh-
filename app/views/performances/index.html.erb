@@ -1,51 +1,59 @@
 
 <div class="container">
+  <h1 class="headers-website">All Performances</h1>
+  <%= form_tag performances_path, class: "form-inline my-3", method: :get do %>
 
-  <div class="form-group d-flex justify-content-center mt-3">
-  <%= form_tag performances_path, method: :get do %>
-    <%= text_field_tag :city_query, params[:city_query], class: "form-control"
-    %>
-    <%= select_tag :category_all_query,
-        options_for_select(['All','Singing', 'Dancing', 'Other']), multiple: true, class: 'form-control' %>
-    <%= text_field_tag :price_all_query %>
+    <div class="form-group">
+      <i class="fas fa-map-marker-alt prefix grey-text"></i>
+      <%= text_field_tag :city_query, params[:city_query], class: "form-control search-item", placeholder:"City"
+      %>
+    </div>
+    <div class="form-group">
+      <label for="price_all_query"> <i class="fas fa-dollar-sign prefix grey-text"></i></label>
+      <%= text_field_tag :price_all_query, params[:price_all_query], class: "form-control form-control search-item", placeholder:"Max. price $" %>
+    </div>
+    <div class="form-group">
+      <label for="category_all_query"><i class="fas fa-microphone"></i></label>
+      <%= select_tag :category_all_query,
+      options_for_select(['All','Singing', 'Dancing', 'Other']), multiple: true, data: { placeholder: "Categories"}, class: 'form-control select2 search-item'%>
+    </div>
     <%# range_field_tag :price_all_query,
         #options = {min: 0, max: @performances.order(price: :desc).last.price}
         options = {min: 0, max: 1000} %>
         <%# label_tag :price_all_query, 'Price range' %>
-    <%= submit_tag 'Update search', class:'card-btn'%>
-
-    <% end %>
-    </div>
-
-
-  <div class="row">
-    <% @performances.each do |performance| %>
-      <div class="col-sm-12 col-md-6 col-lg-3">
-      <%= link_to performance_path(performance) do %>
-          <div class="card-performance">
-            <%= cl_image_tag performance.photo, height: 300, width: 400, crop: :fill, class:'card-performance-img' %>
-              <div class="card-performance-infos">
-                  <div>
-                    <h2><%= performance.name%></h2>
-                     <% if performance.description.length > 25 %>
-                          <p class='ellipsis' ><%= performance.description %></p>
-                      <% else%>
-                          <p><%= performance.description %></p>
-                     <% end %>
-                    <p><strong><%=performance.city%></strong></p>
-                  </div>
-                  <h2 class="card-performance-pricing pb-7"><%= performance.price %>$</h2>
-                  <%= cl_image_tag performance.user.photo, class: 'card-performance-user avatar-bordered' %>
-              </div>
-            </div>
-          <%end%>
+        <div class="form-group">
+          <%= submit_tag 'Update search', class:'card-btn'%>
         </div>
       <% end %>
-    </div>
-  <% if policy(Performance).create? %>
+
+      <div class="row">
+        <% @performances.each do |performance| %>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <%= link_to performance_path(performance) do %>
+          <div class="card-performance">
+            <%= cl_image_tag performance.photo, height: 300, width: 400, crop: :fill, class:'card-performance-img' %>
+            <div class="card-performance-infos">
+              <div>
+                <h2><%= performance.name%></h2>
+                <% if performance.description.length > 25 %>
+                <p class='ellipsis' ><%= performance.description %></p>
+                <% else%>
+                <p><%= performance.description %></p>
+                <% end %>
+                <p><strong><%=performance.city%></strong></p>
+              </div>
+              <h2 class="card-performance-pricing pb-7"><%= performance.price %>$</h2>
+              <%= cl_image_tag performance.user.photo, class: 'card-performance-user avatar-bordered' %>
+            </div>
+          </div>
+          <%end%>
+        </div>
+        <% end %>
+      </div>
+      <% if policy(Performance).create? %>
       <p><%= link_to "Create a new performance", new_performance_path, class:'card-btn btn-block text-center my-3' %></p>
-  <% end %>
-</div>
+      <% end %>
+    </div>
 
 
 
