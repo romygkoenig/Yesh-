@@ -12,15 +12,15 @@
       <h2 class='header_details'>Booking Details</h2>
         <div class="booking_details">
           <div class="d-flex justify-content-between">
-            <p>When?</p>
+            <p><strong>When:</strong></p>
             <p><%= @booking.date%> | <%= @booking.time %></p>
           </div>
           <div class="d-flex justify-content-between">
-            <p>Where?</p>
+            <p><strong>Where</strong>:</p>
             <p><%= @booking.address %></p>
           </div>
           <div class="d-flex justify-content-between">
-            <p>What?</p>
+            <p><strong>What:</strong></p>
             <p><%= @booking.performance.description %></p>
           </div>
         </div>
