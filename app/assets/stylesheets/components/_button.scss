@@ -1,12 +1,12 @@
 .card-btn {
-  background-color:transparent;
+  background-color:#620089;
   -moz-border-radius:6px;
   -webkit-border-radius:6px;
   border-radius:6px;
   border:1px solid #620089;
   display:inline-block;
   cursor:pointer;
-  color:#620089;
+  color: white;
   font-size:14px;
   font-weight:bold;
   padding:7px 43px;
@@ -21,6 +21,7 @@
   border:1px solid #4d016d;
   text-decoration:none;
   color: white;
+  opacity: 0.8;
 }
 
 .card-btn:active a {
