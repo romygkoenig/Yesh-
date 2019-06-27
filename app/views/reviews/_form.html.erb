@@ -3,5 +3,6 @@
 <%= simple_form_for([@performance, review], remote: true) do |f| %>
   <%= f.input :description %>
   <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-  <%= f.submit "Post review", class:'card-btn' %>
+  <%= f.submit "Post review", class:'card-btn', style:'margin-bottom: 50px;' %>
 <% end %>
+
