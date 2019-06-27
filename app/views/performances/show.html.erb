@@ -13,18 +13,18 @@
       <% end %>
     </h1>
   <div class="d-flex">
-    <div class="card-performance">
+    <div class="card-performance-show">
   <%= cl_image_tag @performance.photo, height: 300, width: 400, crop: :fill %>
-  <div class="card-performance-infos">
+  <div class="card-performance-show-infos">
     <div>
       <h2><%=@performance.category%></h2>
       <p><%=@performance.city%></p>
     </div>
-    <h2 class="card-performance-pricing"><%=@performance.price%>$</h2>
+    <h2 class="card-performance-show-pricing"><%=@performance.price%>$</h2>
   </div>
 </div>
 
-<div class="card-performance-description">
+<div class="card-performance-show-description">
       <span><%= cl_image_tag @performance.user.photo, class: "avatar avatar-performance"%> <%= @performance.user.first_name %></span>
       <br>
       <h4>Description</h4>
