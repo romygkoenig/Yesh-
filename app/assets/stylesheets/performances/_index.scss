@@ -1,1 +1,23 @@
 @import "show";
+
+.form-inline {
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0,0,0, 0.2);
+}
+
+.fas {
+  color: #5C1C83;
+}
+
+.search-item {
+  margin-right: 2.3rem;
+  margin-left: 4px !important;
+  border-radius: 4px;
+  border: 1px solid rgb(170,170,170)
+}
+
+.select2-container {
+  margin-right: 2rem !important;
+  margin-left: 4px !important;
+  width: 235px !important;
+}
