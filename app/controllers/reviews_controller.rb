@@ -15,13 +15,19 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.performance = @performance
     @review.user = current_user
-    if @review.save!
-      redirect_to @performance, notice: 'Review was successfully created.'
+    if @review.save
+      respond_to do |format|
+        format.html { redirect_to @performance, notice: 'Review was successfully created.' }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      flash[:alert] = "Something went wrong. Please try again."
-      render :new
+      respond_to do |format|
+        format.html { render 'performance/show' }
+        format.js  # <-- idem
+      end
     end
   end
+
 
   def edit
   end
