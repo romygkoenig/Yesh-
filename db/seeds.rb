@@ -26,7 +26,7 @@ Performance.create!({
   name: "Magician",
   description: "An act that will blow your socks off",
   price: "30",
-  category: "Others",
+  category: "Other",
   city: "Paris",
   user: user,
   remote_photo_url: "https://media3.giphy.com/media/cdflDot60Ktb6lgs9R/200w.webp?cid=790b76115d1340726778714367d0e0e2&rid=200w.webp",
