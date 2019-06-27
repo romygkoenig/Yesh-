@@ -31,6 +31,7 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @booking.performance = @performance
     authorize @booking
   end
 
