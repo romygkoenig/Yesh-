@@ -2,6 +2,9 @@
 
   <div class="container cards-container">
     <h1 align="center">My Bookings</h1>
+     <% if @bookings.blank? %>
+     <p style="margin-bottom: 680px" align="center"><em>What are you waiting for <%= current_user.first_name %>? Book your first performance with Yesh!</em></p>
+<% else %>
     <div class="row">
       <% @bookings.each do |booking| %>
       <div class="col-12">
@@ -42,6 +45,6 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-
+ <% end %>
 
 </div>
