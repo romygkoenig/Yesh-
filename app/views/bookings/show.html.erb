@@ -17,7 +17,7 @@
           </div>
           <div class="d-flex justify-content-between">
             <p>Where?</p>
-            <p><%# @booking.address %></p>
+            <p><%= @booking.address %></p>
           </div>
           <div class="d-flex justify-content-between">
             <p>What?</p>
@@ -33,7 +33,13 @@
    </div>
     <div class="col-12 col-lg-4">
       <h2 class="header_details">Location</h2>
-      <p>DISPLAY MAP HERE</p>
+     <div
+      id="map"
+      style="width: 100%;
+      height: 550px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
     </div>
   </div>
     <%= link_to 'See all your bookings', account_bookings_path, class:'card-btn text-btn btn-block'  %>
