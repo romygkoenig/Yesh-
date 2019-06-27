@@ -38,7 +38,7 @@
 
 // ==================================================
 
-.card-performance {
+.card-performance-show {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -47,7 +47,7 @@
   height: 270px;
 }
 
-.card-performance > img {
+.card-performance-show > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
@@ -60,20 +60,20 @@
   height: 64px;
 }
 
-.card-performance h2 {
+.card-performance-show h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-performance p {
+.card-performance-show p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
 
-.card-performance .card-performance-infos {
+.card-performance-show .card-performance-show-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -81,7 +81,7 @@
   position: relative;
 }
 
-.card-performance-infos .card-performance-user {
+.card-performance-show-infos .card-performance-show-user {
   position: absolute;
   right: 16px;
   top: -20px;
