@@ -30,32 +30,19 @@
 </div>
   <br>
 
-  <h3>Reviews</h3>
-  <%= link_to "Write a review", new_performance_review_path(@performance), class: "card-btn" %>
+  <h3> <%= pluralize @reviews.size, "Review" %></h3>
   <% if @performance.reviews.empty? %>
-    <p> <em> <%= "There are no reviews yet" %> </em> </p>
+    <p> <em> Be the first to leave a review for <%= @performance.name %> </em> </p>
   <% else %>
+  <div id="reviews">
     <% @performance.reviews.each do |review| %>
-    <div class="d-flex flex-row">
-      <div class="p-2">
-        <% if review.user.nil? %>
-          <%= image_tag "face.png", class:"avatar" %>
-        <% else %>
-        <div class="details-reviewer">
-          <%= cl_image_tag review.user.photo, height: 40, width: 40, crop: :fill, class: "avatar avatar-review" %> <br>
-          <span class="first-name-review"><%= review.user.first_name %></span>
-        </div>
-        <% end %>
-      </div>
-      <div class="p-2">
-        <p> <% review.rating.times do %>
-          <span style="color: #EDB867"> <%= "<i class='fas fa-star'></i>".html_safe %></span>
-          <% end %><br>
-          <%= review.description %>
-        </p>
-      </div>
+   <%= render "reviews/show", review: review %>
     </div>
     <% end %>
-  <% end %>
 
+  </div>
+  <% end %>
+  <h3 style="margin-top: 40px;"> Create a New Review</h3>
+  <%= render "reviews/form", review: @review, performance: @performance %>
 </div>
+
