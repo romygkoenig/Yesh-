@@ -4,6 +4,12 @@ class BookingsController < ApplicationController
 
   def show
     authorize @booking
+    @markers = [{
+      lat: @booking.latitude,
+      lng: @booking.longitude,
+      infoWindow: render_to_string(partial: "account/bookings/infowindow", locals: { booking: @booking }),
+      image_url: helpers.asset_url('logo.png')
+    }]
   end
 
   def new
