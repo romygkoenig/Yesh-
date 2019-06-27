@@ -1,8 +1,6 @@
 
 <div class="container">
   <%= link_to "< All results", performances_path, class: "return-link"%>
-  <div class="flexbox">
-    <div class="flex-item">
     <h1 class="headers-website">
       <%=@performance.name%>
       <% if @performance.user == current_user %>
@@ -14,29 +12,26 @@
         <% end %>
       <% end %>
     </h1>
+  <div class="d-flex">
     <div class="card-performance">
   <%= cl_image_tag @performance.photo, height: 300, width: 400, crop: :fill %>
   <div class="card-performance-infos">
     <div>
       <h2><%=@performance.category%></h2>
-      <p><%=@performance.price%></p>
+      <p><%=@performance.city%></p>
     </div>
     <h2 class="card-performance-pricing"><%=@performance.price%>$</h2>
   </div>
 </div>
-</div>
 
-<div class="flex-item">
-      <h3>Description</h3>
+<div class="card-performance-description">
+      <span><%= cl_image_tag @performance.user.photo, class: "avatar avatar-performance"%> <%= @performance.user.first_name %></span>
+      <br>
+      <h4>Description</h4>
       <p><%=@performance.description%></p>
-      <p><strong>Category:</strong> <%=@performance.category%></p>
-      <p><strong>City:</strong> <%=@performance.city%></p>
-      <p><strong>Price:</strong> <%=@performance.price%>$ per hour</p>
       <%= link_to "Book", new_performance_booking_path(@performance), class: "card-btn btn-block text-center"%>
     </div>
   </div>
-</div>
-</div>
   <br>
 
   <h3> <%= pluralize @reviews.size, "Review" %></h3>
@@ -53,5 +48,6 @@
   <% end %>
   <h3 style="margin-top: 40px;"> Create a New Review</h3>
   <%= render "reviews/form", review: @review, performance: @performance %>
+</div>
 </div>
 

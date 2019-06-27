@@ -42,12 +42,22 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 0;
+  margin-right: 40px;
+  height: 270px;
 }
 
 .card-performance > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
+}
+
+.avatar-performance {
+  margin-top: 8px;
+  margin-bottom: 24px;
+  width: 64px;
+  height: 64px;
 }
 
 .card-performance h2 {
