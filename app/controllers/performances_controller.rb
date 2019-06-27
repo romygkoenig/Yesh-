@@ -38,6 +38,7 @@ class PerformancesController < ApplicationController
   end
 
   def show
+    @reviews = @performance.reviews
   end
 
   def new
